@@ -34,7 +34,7 @@ function lockcards() {
 
     if (matchCount === cards.length / 2) {
         setTimeout(() => {
-            alert('You won!');
+            showWinMessage(); 
         }, 500);
     }
 }
@@ -45,7 +45,7 @@ function unflipCards() {
         firstCard.classList.remove('flip');
         secondCard.classList.remove('flip');
         resetBoard();
-    }, 1500);
+    }, 500);
 }
 
 function resetBoard() {
@@ -73,6 +73,19 @@ cards.forEach(card => card.addEventListener('click', flipCard));
 
 const restartButton = document.getElementById('restart');
 restartButton.addEventListener('click', restartGame);
+
+
+const winMessage = document.getElementById('winMessage');
+
+function showWinMessage() {
+    winMessage.classList.add('show'); 
+    setTimeout(() => {
+        winMessage.classList.remove('show'); 
+    }, 3000); 
+}
+
+
+
 
 // Initialize the game
 shuffle();
