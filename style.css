@@ -33,10 +33,18 @@ h1 {
     .wrapper {
         grid-template-columns: repeat(3,100px); 
     }
+    .card{
+        height: 70px;
+        width: 70px;
+    }
 }
 @media (max-width: 348px){
     .wrapper {
         grid-template-columns: repeat(1,100px);
+    }
+    .card{
+        height: 50px;
+        width: 50px;
     }
 }
 
@@ -44,9 +52,9 @@ h1 {
 
 
 
-.card {
+.wrapper .card {
     width: 100px;
-    height: 100px;
+    aspect-ratio: 1/1;
     position: relative;
     opacity: 0; 
     animation: dropAnimationCard 0.5s ease-out forwards;
