@@ -115,7 +115,7 @@ function lossMsg(){
     looseMessage.classList.add('view');
     setTimeout(() =>{
         looseMessage.classList.remove('view');
-    },3000)
+    },2500)
 }
 
 
