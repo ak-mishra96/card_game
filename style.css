@@ -50,7 +50,7 @@ h1 {
     position: relative;
     opacity: 0; 
     animation: dropAnimationCard 0.5s ease-out forwards;
-    animation-delay: calc(0.2s * var(--index)); 
+    animation-delay: calc(0.1s * var(--index)); 
 }
 
 @keyframes dropAnimationCard {
