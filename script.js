@@ -4,6 +4,8 @@ let lock = false;
 let firstCard, secondCard;
 let matchCount = 0;
 
+var score = 25;
+
 function flipCard() {
     if (lock) return;
     if (this === firstCard) return;
@@ -68,6 +70,11 @@ function restartGame() {
         card.offsetHeight; // force a reflow needed to ensure that when the animation is re-enabled, it restarts properly
         card.style.animation = ''; // back to an empty string removes the inline 'none'
         card.addEventListener('click', flipCard);
+        
+        
+        score =25;
+        document.getElementById('score').textContent = `Attempts Left: ${score}/25`;
+
     });
     
     matchCount = 0;
@@ -102,6 +109,39 @@ function showWinMessage() {
 
 
 
+
+
+function lossMsg(){
+    looseMessage.classList.add('view');
+    setTimeout(() =>{
+        looseMessage.classList.remove('view');
+    },2000)
+}
+
+
+function updateScore() {
+    score--;
+    document.getElementById('score').textContent = `Attempts Left: ${score}/25`;
+
+    if(score == 0)
+    {
+        lossMsg();
+        document.getElementById('score').style.backgroundColor = 'green';
+        restartGame();
+    }
+
+    if(score <10)
+    {
+        document.getElementById('score').style.backgroundColor = 'red';
+    }
+}
+
+document.querySelectorAll('.wrapper .card').forEach(card => {
+    card.addEventListener('click', () => {
+        updateScore();
+        
+    });
+});
 
 // Initialize the game
 shuffle();
