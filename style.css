@@ -4,25 +4,66 @@ body {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background-color: #f2f2f2;
+    background-image: linear-gradient(black,rgb(88, 87, 87));
     font-family: Arial, sans-serif;
 }
 
 h1 {
     margin-bottom: 20px;
+    color: white;
 }
 
 .wrapper {
     display: grid;
-    grid-template-columns: repeat(4, 100px);
+    grid-template-columns: repeat(4,100px); /* Adjust 100px if needed */
     gap: 10px;
 }
+
+
+
+
+
+@media (max-width: 768px) {
+    .wrapper {
+        grid-template-columns: repeat(4,100px); 
+    }
+}
+
+@media (max-width: 468px) {
+    .wrapper {
+        grid-template-columns: repeat(3,100px); 
+    }
+}
+@media (max-width : 370px){
+    .wrapper {
+        grid-template-columns: repeat(1,100px);
+    }
+}
+
+
+
+
 
 .card {
     width: 100px;
     height: 100px;
     position: relative;
+    opacity: 0; 
+    animation: dropAnimationCard 0.5s ease-out forwards;
+    animation-delay: calc(0.2s * var(--index)); 
 }
+
+@keyframes dropAnimationCard {
+    0% {
+        transform: translateY(-100%); 
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
 
 .card .front,
 .card .back {

@@ -61,13 +61,29 @@ function shuffle() {
 }
 
 function restartGame() {
+    // Reset the cards to their initial state
     cards.forEach(card => {
-        card.classList.remove('flip');
+        card.classList.remove('flip'); //essentially "turns off" the animation for a moment, giving it a hard reset.
+        card.style.animation = 'none'; 
+        card.offsetHeight; // force a reflow needed to ensure that when the animation is re-enabled, it restarts properly
+        card.style.animation = ''; // back to an empty string removes the inline 'none'
         card.addEventListener('click', flipCard);
     });
+    
     matchCount = 0;
-    shuffle();
+    shuffle(); 
+
+    
+    setTimeout(() => {
+        
+        document.querySelector('.wrapper').style.animation = 'dropAnimation 1s ease-out forwards';
+    }, 100);
 }
+
+cards.forEach((card, index) => {
+    card.style.setProperty('--index', index);
+});
+
 
 cards.forEach(card => card.addEventListener('click', flipCard));
 
