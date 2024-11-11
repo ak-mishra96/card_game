@@ -64,6 +64,8 @@ function shuffle() {
 
 function restartGame() {
     // Reset the cards to their initial state
+
+    document.getElementById('score').style.backgroundColor = 'green';
     cards.forEach(card => {
         card.classList.remove('flip'); //essentially "turns off" the animation for a moment, giving it a hard reset.
         card.style.animation = 'none'; 
@@ -73,7 +75,7 @@ function restartGame() {
         
         
         score = 30;
-        document.getElementById('score').textContent = `Attempts Left: ${score}/25`;
+        document.getElementById('score').textContent = `Attempts Left: ${score}/30`;
 
     });
     
@@ -123,7 +125,7 @@ function updateScore() {
     score--;
     document.getElementById('score').textContent = `Attempts Left: ${score}/30`;
 
-    if(score == 0)
+    if(score == 0 && matchCount != cards.length / 2)
     {
         lossMsg();
         document.getElementById('score').style.backgroundColor = 'green';
