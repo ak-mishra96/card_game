@@ -121,7 +121,7 @@ function lossMsg(){
 
 function updateScore() {
     score--;
-    document.getElementById('score').textContent = `Attempts Left: ${score}/25`;
+    document.getElementById('score').textContent = `Attempts Left: ${score}/30`;
 
     if(score == 0)
     {
