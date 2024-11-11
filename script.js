@@ -4,7 +4,7 @@ let lock = false;
 let firstCard, secondCard;
 let matchCount = 0;
 
-var score = 25;
+var score = 30;
 
 function flipCard() {
     if (lock) return;
@@ -72,7 +72,7 @@ function restartGame() {
         card.addEventListener('click', flipCard);
         
         
-        score =25;
+        score = 30;
         document.getElementById('score').textContent = `Attempts Left: ${score}/25`;
 
     });
