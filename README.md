@@ -6,6 +6,7 @@ OVERVIEW:
 This is a web-based card game built using HTML, CSS, and JavaScript. The game is designed with a grid layout and provides an interactive user experience.
 
 FEATURES:
+
 -> Responsive UI with a grid layout
 -> Smooth gameplay mechanics using JavaScript
 -> Dynamic card flipping and interactions
